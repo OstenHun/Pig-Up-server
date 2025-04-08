@@ -1,10 +1,15 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerInput : NetworkBehaviour
+public class PlayerInputHandler : NetworkBehaviour
 {
-    [SerializeField]
     private PlayerInput m_PlayerInput;
+
+    private void Awake()
+    {
+        m_PlayerInput = GetComponent<PlayerInput>();
+    }
 
     public override void OnNetworkSpawn()
     {
